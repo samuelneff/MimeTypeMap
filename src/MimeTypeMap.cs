@@ -111,6 +111,7 @@ namespace MimeTypeMap
         {".dif", "video/x-dv"},
         {".dir", "application/x-director"},
         {".disco", "text/xml"},
+        {".divx", "video/divx"},
         {".dll", "application/x-msdownload"},
         {".dll.config", "text/xml"},
         {".dlm", "text/dlm"},
