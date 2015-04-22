@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MimeTypeMap
+namespace MimeTypes
 {
     public static class MimeTypeMap
     {
@@ -289,11 +289,16 @@ namespace MimeTypeMap
         {".nws", "message/rfc822"},
         {".ocx", "application/octet-stream"},
         {".oda", "application/oda"},
-        {".odc", "text/x-ms-odc"},
+        {".odb", "application/vnd.oasis.opendocument.database"},
+        {".odc", "application/vnd.oasis.opendocument.chart"},
+        {".odf", "application/vnd.oasis.opendocument.formula"},
+        {".odg", "application/vnd.oasis.opendocument.graphics"},
         {".odh", "text/plain"},
+        {".odi", "application/vnd.oasis.opendocument.image"},
         {".odl", "text/plain"},
+        {".odm", "application/vnd.oasis.opendocument.text-master"},
         {".odp", "application/vnd.oasis.opendocument.presentation"},
-        {".ods", "application/oleobject"},
+        {".ods", "application/vnd.oasis.opendocument.spreadsheet"},
         {".odt", "application/vnd.oasis.opendocument.text"},
         {".ogv", "video/ogg"},
         {".one", "application/onenote"},
@@ -304,6 +309,12 @@ namespace MimeTypeMap
         {".onetoc2", "application/onenote"},
         {".orderedtest", "application/xml"},
         {".osdx", "application/opensearchdescription+xml"},
+        {".otg", "application/vnd.oasis.opendocument.graphics-template"},
+        {".oth", "application/vnd.oasis.opendocument.text-web"},
+        {".otp", "application/vnd.oasis.opendocument.presentation-template"},
+        {".ots", "application/vnd.oasis.opendocument.spreadsheet-template"},
+        {".ott", "application/vnd.oasis.opendocument.text-template"},
+        {".oxt", "application/vnd.openofficeorg.extension"},
         {".p10", "application/pkcs10"},
         {".p12", "application/x-pkcs12"},
         {".p7b", "application/x-pkcs7-certificates"},
