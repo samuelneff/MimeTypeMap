@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata>
+		<id>MediaTypeMap</id>
+		<version>$version$</version>
+		<title>Media Type Map</title>
+		<authors>$author$</authors>
+		<description>$description$</description>
+		<projectUrl>https://github.com/samuelneff/MimeTypeMap</projectUrl>
+		<licenseUrl>https://github.com/samuelneff/MimeTypeMap/blob/master/LICENSE</licenseUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<tags>C# ASP.NET</tags>
+	</metadata>
+</package>
