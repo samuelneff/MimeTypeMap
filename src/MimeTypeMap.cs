@@ -1,4 +1,12 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplicationTest
+{
+    using System;
 using System.Collections.Generic;
 
 namespace MimeTypeMap
@@ -210,9 +218,9 @@ namespace MimeTypeMap
         {".jfif", "image/pjpeg"},
         {".jnlp", "application/x-java-jnlp-file"},
         {".jpb", "application/octet-stream"},
-        {".jpe", "image/jpeg"},
-        {".jpeg", "image/jpeg"},
         {".jpg", "image/jpeg"},
+        {".jpeg", "image/jpeg"},
+        {".jpe", "image/jpeg"},
         {".js", "application/x-javascript"},
         {".json", "application/json"},
         {".jsx", "text/jscript"},
@@ -594,5 +602,27 @@ namespace MimeTypeMap
 
             return _mappings.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
         }
+
+        public static string GetExtension(string mimeType)
+        {
+            if (mimeType == null)
+            {
+                throw new ArgumentNullException("mimeType");
+            }
+
+            if (-1 == mimeType.IndexOf("/"))
+            {
+                throw new ArgumentException(string.Format("The mimeType {0} is incorrectly formatted", "mimeType"));
+            }
+
+            var result =
+                _mappings.FirstOrDefault(kv => kv.Value.Equals(mimeType, StringComparison.InvariantCultureIgnoreCase));
+            if (string.IsNullOrEmpty(result.Key))
+            {
+                throw new InvalidOperationException(string.Format("mimeType {0} is unknown.",mimeType));
+            }
+            return result.Key;
+        }
     }
+}
 }
