@@ -586,6 +586,7 @@ namespace MimeTypes
         {".xwd", "image/x-xwindowdump"},
         {".z", "application/x-compress"},
         {".zip", "application/x-zip-compressed"},
+        {".webp", "image/webp"} /* https://en.wikipedia.org/wiki/WebP */
         #endregion
 
         };
