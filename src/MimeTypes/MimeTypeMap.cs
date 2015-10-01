@@ -91,6 +91,7 @@ namespace MimeTypes
                 {".cdda", "audio/aiff"},
                 {".cdf", "application/x-cdf"},
                 {".cer", "application/x-x509-ca-cert"},
+                {".cfg", "text/plain"},
                 {".chm", "application/octet-stream"},
                 {".class", "application/x-java-applet"},
                 {".clp", "application/x-msclip"},
