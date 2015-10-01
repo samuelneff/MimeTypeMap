@@ -204,6 +204,7 @@ namespace MimeTypes
                 {".iii", "application/x-iphone"},
                 {".inc", "text/plain"},
                 {".inf", "application/octet-stream"},
+                {".ini", "text/plain"},
                 {".inl", "text/plain"},
                 {".ins", "application/x-internet-signup"},
                 {".ipa", "application/x-itunes-ipa"},
