@@ -422,6 +422,7 @@ namespace MimeTypes
                 {".s", "text/plain"},
                 {".safariextz", "application/x-safari-safariextz"},
                 {".scd", "application/x-msschedule"},
+                {".scr", "text/plain"},
                 {".sct", "text/scriptlet"},
                 {".sd2", "audio/x-sd2"},
                 {".sdp", "application/sdp"},
