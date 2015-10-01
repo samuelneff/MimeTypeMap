@@ -684,6 +684,8 @@ namespace MimeTypes
                 extension = "." + extension;
             }
 
+            extension = extension.ToLower();
+
             string mime;
 
             return _mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
