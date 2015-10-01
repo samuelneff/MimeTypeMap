@@ -6,13 +6,15 @@ namespace MimeTypes
 {
     public static class MimeTypeMap
     {
-        private static readonly Lazy<IDictionary<string, string>> _mappings = new Lazy<IDictionary<string, string>>(BuildMappings);
-            
-        private static IDictionary<string, string> BuildMappings() {
-            var mappings = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {
+        private static readonly Lazy<IDictionary<string, string>> Mappings =
+            new Lazy<IDictionary<string, string>>(BuildMappings);
 
+        private static IDictionary<string, string> BuildMappings()
+        {
+            var mappings = new Dictionary<string, string>(StringComparer.CurrentCultureIgnoreCase)
+            {
                 #region Big freaking list of mime types
-            
+
                 // maps both ways,
                 // extension -> mime type
                 //   and
@@ -78,7 +80,7 @@ namespace MimeTypes
                 {".avi", "video/x-msvideo"},
                 {".axs", "application/olescript"},
                 {".bas", "text/plain"},
-                {".bat", "application/x-msdos-program" },
+                {".bat", "application/x-msdos-program"},
                 {".bcpio", "application/x-bcpio"},
                 {".bin", "application/octet-stream"},
                 {".bmp", "image/bmp"},
@@ -537,7 +539,8 @@ namespace MimeTypes
                 {".wdp", "image/vnd.ms-photo"},
                 {".webarchive", "application/x-safari-webarchive"},
                 {".webm", "video/webm"},
-                {".webp", "image/webp"}, /* https://en.wikipedia.org/wiki/WebP */
+                {".webp", "image/webp"},
+                /* https://en.wikipedia.org/wiki/WebP */
                 {".webtest", "application/xml"},
                 {".wiq", "application/xml"},
                 {".wiz", "application/msword"},
@@ -608,7 +611,6 @@ namespace MimeTypes
                 {".xwd", "image/x-xwindowdump"},
                 {".z", "application/x-compress"},
                 {".zip", "application/zip"},
-
                 {"application/fsharp-script", ".fsx"},
                 {"application/msaccess", ".adp"},
                 {"application/msword", ".doc"},
@@ -623,7 +625,8 @@ namespace MimeTypes
                 {"application/x-shockwave-flash", ".swf"},
                 {"application/x-x509-ca-cert", ".cer"},
                 {"application/xhtml+xml", ".xhtml"},
-                {"application/xml", ".xml"},  // anomoly, .xml -> text/xml, but application/xml -> many thingss, but all are xml, so safest is .xml
+                {"application/xml", ".xml"},
+                // anomoly, .xml -> text/xml, but application/xml -> many thingss, but all are xml, so safest is .xml
                 {"audio/aac", ".AAC"},
                 {"audio/aiff", ".aiff"},
                 {"audio/basic", ".snd"},
@@ -653,20 +656,16 @@ namespace MimeTypes
                 {"video/x-dv", ".dv"},
                 {"video/x-la-asf", ".lsf"},
                 {"video/x-ms-asf", ".asf"},
-                {"x-world/x-vrml", ".xof"},
+                {"x-world/x-vrml", ".xof"}
 
                 #endregion
-
-                };
+            };
 
             var cache = mappings.ToList(); // need ToList() to avoid modifying while still enumerating
 
-            foreach (var mapping in cache) 
+            foreach (var mapping in cache.Where(mapping => !mappings.ContainsKey(mapping.Value)))
             {
-                if (!mappings.ContainsKey(mapping.Value))
-                {
-                    mappings.Add(mapping.Value, mapping.Key);
-                }
+                mappings.Add(mapping.Value, mapping.Key);
             }
 
             return mappings;
@@ -676,7 +675,7 @@ namespace MimeTypes
         {
             if (extension == null)
             {
-                throw new ArgumentNullException("extension");
+                throw new ArgumentNullException(nameof(extension));
             }
 
             if (!extension.StartsWith("."))
@@ -688,14 +687,14 @@ namespace MimeTypes
 
             string mime;
 
-            return _mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
+            return Mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
         }
 
         public static string GetExtension(string mimeType)
         {
             if (mimeType == null)
             {
-                throw new ArgumentNullException("mimeType");
+                throw new ArgumentNullException(nameof(mimeType));
             }
 
             if (mimeType.StartsWith("."))
@@ -705,7 +704,7 @@ namespace MimeTypes
 
             string extension;
 
-            if (_mappings.Value.TryGetValue(mimeType, out extension))
+            if (Mappings.Value.TryGetValue(mimeType, out extension))
             {
                 return extension;
             }
