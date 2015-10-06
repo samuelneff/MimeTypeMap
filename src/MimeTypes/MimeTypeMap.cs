@@ -95,7 +95,7 @@ namespace MimeTypes
                 {".chm", "application/octet-stream"},
                 {".class", "application/x-java-applet"},
                 {".clp", "application/x-msclip"},
-                {".cmd" "text/plain"},
+                {".cmd", "text/plain"},
                 {".cmx", "image/x-cmx"},
                 {".cnf", "text/plain"},
                 {".cod", "image/cis-cod"},
