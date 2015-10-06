@@ -607,7 +607,7 @@ namespace MimeTypes
                 {".xtp", "application/octet-stream"},
                 {".xwd", "image/x-xwindowdump"},
                 {".z", "application/x-compress"},
-                {".zip", "application/x-zip-compressed"},
+                {".zip", "application/zip"},
 
                 {"application/fsharp-script", ".fsx"},
                 {"application/msaccess", ".adp"},
