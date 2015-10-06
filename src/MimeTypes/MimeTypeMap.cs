@@ -398,7 +398,7 @@ namespace MimeTypes
                 {".qxd", "application/octet-stream"},
                 {".ra", "audio/x-pn-realaudio"},
                 {".ram", "audio/x-pn-realaudio"},
-                {".rar", "application/octet-stream"},
+                {".rar", "application/x-rar-compressed"},
                 {".ras", "image/x-cmu-raster"},
                 {".rat", "application/rat-file"},
                 {".rc", "text/plain"},
