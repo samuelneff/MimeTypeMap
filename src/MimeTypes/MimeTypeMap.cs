@@ -25,6 +25,10 @@ namespace MimeTypes
                 // combination of values from Windows 7 Registry and 
                 // from C:\Windows\System32\inetsrv\config\applicationHost.config
                 // some added, including .7z and .dat
+                //
+                // Some added based on http://www.iana.org/assignments/media-types/media-types.xhtml
+                // which lists mime types, but not extensions
+                //
                 {".323", "text/h323"},
                 {".3g2", "video/3gpp2"},
                 {".3gp", "video/3gpp"},
@@ -54,11 +58,11 @@ namespace MimeTypes
                 {".ADTS", "audio/aac"},
                 {".afm", "application/octet-stream"},
                 {".ai", "application/postscript"},
-                {".aif", "audio/x-aiff"},
+                {".aif", "audio/aiff"},
                 {".aifc", "audio/aiff"},
                 {".aiff", "audio/aiff"},
                 {".air", "application/vnd.adobe.air-application-installer-package+zip"},
-                {".amc", "application/x-mpeg"},
+                {".amc", "application/mpeg"},
                 {".application", "application/x-ms-application"},
                 {".art", "image/x-jg"},
                 {".asa", "application/xml"},
@@ -230,7 +234,7 @@ namespace MimeTypes
                 {".jpe", "image/jpeg"},
                 {".jpeg", "image/jpeg"},
                 {".jpg", "image/jpeg"},
-                {".js", "application/x-javascript"},
+                {".js", "application/javascript"},
                 {".json", "application/json"},
                 {".jsx", "text/jscript"},
                 {".jsxbin", "text/plain"},
