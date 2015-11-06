@@ -626,6 +626,7 @@ namespace MimeTypes
                 {"application/x-director", ".dir"},
                 {"application/x-shockwave-flash", ".swf"},
                 {"application/x-x509-ca-cert", ".cer"},
+                {"application/x-zip-compressed", ".zip"}
                 {"application/xhtml+xml", ".xhtml"},
                 {"application/xml", ".xml"},  // anomoly, .xml -> text/xml, but application/xml -> many thingss, but all are xml, so safest is .xml
                 {"audio/aac", ".AAC"},
