@@ -6,13 +6,14 @@ namespace MimeTypes
 {
     public static class MimeTypeMap
     {
-        private static readonly Lazy<IDictionary<string, string>> _mappings = new Lazy<IDictionary<string, string>>(BuildMappings);
-            
-        private static IDictionary<string, string> BuildMappings() {
-            var mappings = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {
+        private static readonly Lazy<IDictionary<string, string>> Mappings = new Lazy<IDictionary<string, string>>(BuildMappings);
 
+        private static IDictionary<string, string> BuildMappings()
+        {
+            var mappings = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
+            {
                 #region Big freaking list of mime types
-            
+
                 // maps both ways,
                 // extension -> mime type
                 //   and
@@ -612,7 +613,6 @@ namespace MimeTypes
                 {".xwd", "image/x-xwindowdump"},
                 {".z", "application/x-compress"},
                 {".zip", "application/zip"},
-
                 {"application/fsharp-script", ".fsx"},
                 {"application/msaccess", ".adp"},
                 {"application/msword", ".doc"},
@@ -628,7 +628,7 @@ namespace MimeTypes
                 {"application/x-x509-ca-cert", ".cer"},
                 {"application/x-zip-compressed", ".zip"},
                 {"application/xhtml+xml", ".xhtml"},
-                {"application/xml", ".xml"},  // anomoly, .xml -> text/xml, but application/xml -> many thingss, but all are xml, so safest is .xml
+                {"application/xml", ".xml"}, // anomoly, .xml -> text/xml, but application/xml -> many thingss, but all are xml, so safest is .xml
                 {"audio/aac", ".AAC"},
                 {"audio/aiff", ".aiff"},
                 {"audio/basic", ".snd"},
@@ -658,15 +658,14 @@ namespace MimeTypes
                 {"video/x-dv", ".dv"},
                 {"video/x-la-asf", ".lsf"},
                 {"video/x-ms-asf", ".asf"},
-                {"x-world/x-vrml", ".xof"},
+                {"x-world/x-vrml", ".xof"}
 
                 #endregion
-
-                };
+            };
 
             var cache = mappings.ToList(); // need ToList() to avoid modifying while still enumerating
 
-            foreach (var mapping in cache) 
+            foreach (var mapping in cache)
             {
                 if (!mappings.ContainsKey(mapping.Value))
                 {
@@ -691,7 +690,7 @@ namespace MimeTypes
 
             string mime;
 
-            return _mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
+            return Mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
         }
 
         public static string GetExtension(string mimeType)
@@ -708,12 +707,27 @@ namespace MimeTypes
 
             string extension;
 
-            if (_mappings.Value.TryGetValue(mimeType, out extension))
+            if (Mappings.Value.TryGetValue(mimeType, out extension))
             {
                 return extension;
             }
 
             throw new ArgumentException("Requested mime type is not registered: " + mimeType);
+        }
+
+        public static IEnumerable<string> GetKnownExtensions(string mimeType)
+        {
+            if (mimeType == null)
+            {
+                throw new ArgumentNullException("mimeType");
+            }
+
+            if (mimeType.StartsWith("."))
+            {
+                throw new ArgumentException("Requested mime type is not valid: " + mimeType);
+            }
+
+            return Mappings.Value.Where(s => s.Value.Equals(mimeType, StringComparison.InvariantCultureIgnoreCase)).Select(s => s.Key);
         }
     }
 }
