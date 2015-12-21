@@ -7,8 +7,9 @@ namespace MimeTypes
     public static class MimeTypeMap
     {
         private static readonly Lazy<IDictionary<string, string>> _mappings = new Lazy<IDictionary<string, string>>(BuildMappings);
-            
-        private static IDictionary<string, string> BuildMappings() {
+
+        private static IDictionary<string, string> BuildMappings()
+        {
             var mappings = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {
 
                 #region Big freaking list of mime types
@@ -63,6 +64,7 @@ namespace MimeTypes
                 {".aiff", "audio/aiff"},
                 {".air", "application/vnd.adobe.air-application-installer-package+zip"},
                 {".amc", "application/mpeg"},
+                {".anx", "application/annodex"},
                 {".application", "application/x-ms-application"},
                 {".art", "image/x-jg"},
                 {".asa", "application/xml"},
@@ -80,7 +82,9 @@ namespace MimeTypes
                 {".atom", "application/atom+xml"},
                 {".au", "audio/basic"},
                 {".avi", "video/x-msvideo"},
+                {".axa", "audio/annodex"},
                 {".axs", "application/olescript"},
+                {".axv", "video/annodex"},
                 {".bas", "text/plain"},
                 {".bcpio", "application/x-bcpio"},
                 {".bin", "application/octet-stream"},
@@ -163,6 +167,7 @@ namespace MimeTypes
                 {".fif", "application/fractals"},
                 {".filters", "application/xml"},
                 {".fla", "application/octet-stream"},
+                {".flac", "audio/flac"},
                 {".flr", "x-world/x-vrml"},
                 {".flv", "video/x-flv"},
                 {".fsscript", "application/fsharp-script"},
@@ -321,13 +326,17 @@ namespace MimeTypes
                 {".odp", "application/vnd.oasis.opendocument.presentation"},
                 {".ods", "application/vnd.oasis.opendocument.spreadsheet"},
                 {".odt", "application/vnd.oasis.opendocument.text"},
+                {".oga", "audio/ogg"},
+                {".ogg", "audio/ogg"},
                 {".ogv", "video/ogg"},
+                {".ogx", "application/ogg"},
                 {".one", "application/onenote"},
                 {".onea", "application/onenote"},
                 {".onepkg", "application/onenote"},
                 {".onetmp", "application/onenote"},
                 {".onetoc", "application/onenote"},
                 {".onetoc2", "application/onenote"},
+                {".opus", "audio/ogg"},
                 {".orderedtest", "application/xml"},
                 {".osdx", "application/opensearchdescription+xml"},
                 {".otf", "application/font-sfnt"},
@@ -459,6 +468,7 @@ namespace MimeTypes
                 {".sor", "text/plain"},
                 {".spc", "application/x-pkcs7-certificates"},
                 {".spl", "application/futuresplash"},
+                {".spx", "audio/ogg"},
                 {".src", "application/x-wais-source"},
                 {".srf", "text/plain"},
                 {".SSISDeploymentManifest", "text/xml"},
@@ -608,6 +618,7 @@ namespace MimeTypes
                 {".xslt", "text/xml"},
                 {".xsn", "application/octet-stream"},
                 {".xss", "application/xml"},
+                {".xspf", "application/xspf+xml"},
                 {".xtp", "application/octet-stream"},
                 {".xwd", "image/x-xwindowdump"},
                 {".z", "application/x-compress"},
@@ -666,7 +677,7 @@ namespace MimeTypes
 
             var cache = mappings.ToList(); // need ToList() to avoid modifying while still enumerating
 
-            foreach (var mapping in cache) 
+            foreach (var mapping in cache)
             {
                 if (!mappings.ContainsKey(mapping.Value))
                 {
