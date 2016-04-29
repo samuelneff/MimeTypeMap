@@ -65,6 +65,7 @@ namespace MimeTypes
                 {".air", "application/vnd.adobe.air-application-installer-package+zip"},
                 {".amc", "application/mpeg"},
                 {".anx", "application/annodex"},
+                {".apk", "application/vnd.android.package-archive" },
                 {".application", "application/x-ms-application"},
                 {".art", "image/x-jg"},
                 {".asa", "application/xml"},
