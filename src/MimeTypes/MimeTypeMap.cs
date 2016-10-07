@@ -10,7 +10,7 @@ namespace MimeTypes
 
         private static IDictionary<string, string> BuildMappings()
         {
-            var mappings = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {
+            var mappings = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {
 
                 #region Big freaking list of mime types
             
