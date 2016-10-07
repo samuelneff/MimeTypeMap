@@ -646,6 +646,7 @@ namespace MimeTypes
                 {"audio/basic", ".snd"},
                 {"audio/mid", ".midi"},
                 {"audio/wav", ".wav"},
+                {"audio/x-m4a", ".m4a"},
                 {"audio/x-mpegurl", ".m3u"},
                 {"audio/x-pn-realaudio", ".ra"},
                 {"audio/x-smd", ".smd"},
