@@ -175,6 +175,7 @@ namespace MimeTypes
                 {".fsx", "application/fsharp-script"},
                 {".generictest", "application/xml"},
                 {".gif", "image/gif"},
+                {".gpx", "application/gpx+xml"},
                 {".group", "text/x-ms-group"},
                 {".gsm", "audio/x-gsm"},
                 {".gtar", "application/x-gtar"},
