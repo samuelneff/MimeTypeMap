@@ -482,6 +482,8 @@ namespace MimeTypes
                 {".svc", "application/xml"},
                 {".svg", "image/svg+xml"},
                 {".swf", "application/x-shockwave-flash"},
+                {".step", "application/step"},
+                {".stp", "application/step"},
                 {".t", "application/x-troff"},
                 {".tar", "application/x-tar"},
                 {".tcl", "application/x-tcl"},
