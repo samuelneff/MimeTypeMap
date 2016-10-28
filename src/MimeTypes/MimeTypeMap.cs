@@ -634,6 +634,7 @@ namespace MimeTypes
                 {"application/octet-stream", ".bin"},
                 {"application/onenote", ".one"},
                 {"application/postscript", ".eps"},
+                {"application/step", ".step"},
                 {"application/vnd.ms-excel", ".xls"},
                 {"application/vnd.ms-powerpoint", ".ppt"},
                 {"application/vnd.ms-works", ".wks"},
