@@ -9,6 +9,8 @@ namespace MimeTypeMapTest
         {
             Console.WriteLine("txt -> " + MimeTypeMap.GetMimeType("txt"));
             Console.WriteLine("audio/wav -> " + MimeTypeMap.GetExtension("audio/wav"));
+
+            MimeTypeMap.Replace("txt", "application/txt");
         }
     }
 }
