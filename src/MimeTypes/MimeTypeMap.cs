@@ -694,33 +694,92 @@ namespace MimeTypes
             return mappings;
         }
 
-        public static string GetMimeType(string extension)
+        public static void Add(string extension, string mimeType)
         {
-            if (extension == null)
-            {
-                throw new ArgumentNullException("extension");
-            }
+            if (string.IsNullOrWhiteSpace(extension))
+                throw new ArgumentNullException(nameof(extension));
 
-            if (!extension.StartsWith("."))
+            if (string.IsNullOrWhiteSpace(mimeType))
+                throw new ArgumentNullException(nameof(mimeType));
+
+            if ('.' != extension[0])
             {
-                extension = "." + extension;
+                extension = $".{extension}";
             }
 
             string mime;
+            if (_mappings.Value.TryGetValue(extension, out mime))
+            {
+                throw new ArgumentException($"Extension {extension} is already registered to {mime}.");
+            }
 
+            if ('.' == mimeType[0])
+            {
+                throw new ArgumentException($"Requested mime type is not valid: {mimeType}", nameof(mimeType));
+            }
+
+            _mappings.Value[extension] = mimeType;
+
+            if (!_mappings.Value.ContainsKey(mimeType))
+                _mappings.Value.Add(mimeType, extension);
+        }
+
+        public static void Replace(string extension, string mimeType)
+        {
+            if (string.IsNullOrWhiteSpace(extension))
+                throw new ArgumentNullException(nameof(extension));
+
+            if (string.IsNullOrWhiteSpace(mimeType))
+                throw new ArgumentNullException(nameof(mimeType));
+
+            if ('.' != extension[0])
+            {
+                extension = $".{extension}";
+            }
+            if ('.' == mimeType[0])
+            {
+                throw new ArgumentException($"Requested mime type is not valid: {mimeType}", nameof(mimeType));
+            }
+
+            string mime;
+            if (!_mappings.Value.TryGetValue(extension, out mime))
+            {
+                Add(extension, mimeType);
+            }
+            else
+            {
+                _mappings.Value[extension] = mimeType;
+                _mappings.Value[mimeType] = extension;
+            }
+
+            
+        }
+
+        public static string GetMimeType(string extension)
+        {
+            if (string.IsNullOrWhiteSpace(extension))
+            {
+                throw new ArgumentNullException(nameof(extension));
+            }
+
+            if ('.' != extension[0])
+            {
+                extension = $".{extension}";
+            }
+            string mime;
             return _mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
         }
 
         public static string GetExtension(string mimeType)
         {
-            if (mimeType == null)
+            if (string.IsNullOrWhiteSpace(mimeType))
             {
-                throw new ArgumentNullException("mimeType");
+                throw new ArgumentNullException(nameof(mimeType));
             }
 
-            if (mimeType.StartsWith("."))
+            if ('.' == mimeType[0])
             {
-                throw new ArgumentException("Requested mime type is not valid: " + mimeType);
+                throw new ArgumentException($"Requested mime type is not valid: {mimeType}", nameof(mimeType));
             }
 
             string extension;
@@ -730,7 +789,7 @@ namespace MimeTypes
                 return extension;
             }
 
-            throw new ArgumentException("Requested mime type is not registered: " + mimeType);
+            throw new ArgumentException($"Requested mime type is not registered: {mimeType}", nameof(mimeType));
         }
     }
 }

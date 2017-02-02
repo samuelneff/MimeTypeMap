@@ -50,8 +50,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\MimeTypes\MimeTypes.csproj">
-      <Project>{D54FB6F6-9042-4925-BFC5-947A363F0849}</Project>
+      <Project>{d54fb6f6-9042-4925-bfc5-947a363f0849}</Project>
       <Name>MimeTypes</Name>
     </ProjectReference>
   </ItemGroup>
