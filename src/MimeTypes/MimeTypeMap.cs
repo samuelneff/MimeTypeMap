@@ -285,6 +285,7 @@ namespace MimeTypes
                 {".midi", "audio/mid"},
                 {".mix", "application/octet-stream"},
                 {".mk", "text/plain"},
+                {".mkv", "video/mkv"},
                 {".mmf", "application/x-smaf"},
                 {".mno", "text/xml"},
                 {".mny", "application/x-msmoney"},
