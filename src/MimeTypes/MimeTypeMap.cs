@@ -154,6 +154,7 @@ namespace MimeTypes
                 {".dvi", "application/x-dvi"},
                 {".dwf", "drawing/x-dwf"},
                 {".dwp", "application/octet-stream"},
+                {".dwg", "application/acad" },
                 {".dxr", "application/x-director"},
                 {".eml", "message/rfc822"},
                 {".emz", "application/octet-stream"},
