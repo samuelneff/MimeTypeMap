@@ -154,6 +154,7 @@ namespace MimeTypes
                 {".dvi", "application/x-dvi"},
                 {".dwf", "drawing/x-dwf"},
                 {".dwp", "application/octet-stream"},
+                {".dwg", "application/acad" },
                 {".dxr", "application/x-director"},
                 {".eml", "message/rfc822"},
                 {".emz", "application/octet-stream"},
@@ -711,7 +712,7 @@ namespace MimeTypes
             return _mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
         }
 
-        public static string GetExtension(string mimeType)
+        public static string GetExtension(string mimeType, bool throwIfNotFound = true)
         {
             if (mimeType == null)
             {
@@ -725,12 +726,14 @@ namespace MimeTypes
 
             string extension;
 
-            if (_mappings.Value.TryGetValue(mimeType, out extension))
+            if (!_mappings.Value.TryGetValue(mimeType, out extension) && throwIfNotFound)
+            {
+                throw new ArgumentException("Requested mime type is not registered: " + mimeType);
+            }
+            else
             {
                 return extension;
             }
-
-            throw new ArgumentException("Requested mime type is not registered: " + mimeType);
         }
     }
 }
