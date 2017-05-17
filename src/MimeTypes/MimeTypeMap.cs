@@ -733,5 +733,17 @@ namespace MimeTypes
 
             throw new ArgumentException("Requested mime type is not registered: " + mimeType);
         }
+        
+        public static string GetExtension(string mimetype)
+        {
+            if(mimetype == null)
+            {
+                throw new ArgumentNullException("MimeType");
+            }
+
+            string extension = _mappings.FirstOrDefault(x => x.Value == mimetype).Key;
+
+            return extension != null ? extension : ".xxx";
+        }
     }
 }
