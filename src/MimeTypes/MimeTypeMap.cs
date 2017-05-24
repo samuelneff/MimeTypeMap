@@ -8,12 +8,23 @@ namespace MimeTypes
     {
         private static readonly Lazy<IDictionary<string, string>> _mappings = new Lazy<IDictionary<string, string>>(BuildMappings);
 
+        /// <summary>
+        /// Default media type.
+        /// </summary>
+        public static string DefaultMimeType { get; set; } = "application/octet-stream";
+
+        /// <summary>
+        /// Default extension.
+        /// </summary>
+        public static string DefaultExtension { get; set; } = ".bin";
+
         private static IDictionary<string, string> BuildMappings()
         {
-            var mappings = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {
+            var mappings = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
 
                 #region Big freaking list of mime types
-            
+
                 // maps both ways,
                 // extension -> mime type
                 //   and
@@ -65,7 +76,7 @@ namespace MimeTypes
                 {".air", "application/vnd.adobe.air-application-installer-package+zip"},
                 {".amc", "application/mpeg"},
                 {".anx", "application/annodex"},
-                {".apk", "application/vnd.android.package-archive" },
+                {".apk", "application/vnd.android.package-archive"},
                 {".application", "application/x-ms-application"},
                 {".art", "image/x-jg"},
                 {".asa", "application/xml"},
@@ -559,7 +570,8 @@ namespace MimeTypes
                 {".wdp", "image/vnd.ms-photo"},
                 {".webarchive", "application/x-safari-webarchive"},
                 {".webm", "video/webm"},
-                {".webp", "image/webp"}, /* https://en.wikipedia.org/wiki/WebP */
+                {".webp", "image/webp"},
+                /* https://en.wikipedia.org/wiki/WebP */
                 {".webtest", "application/xml"},
                 {".wiq", "application/xml"},
                 {".wiz", "application/msword"},
@@ -649,7 +661,7 @@ namespace MimeTypes
                 {"application/x-x509-ca-cert", ".cer"},
                 {"application/x-zip-compressed", ".zip"},
                 {"application/xhtml+xml", ".xhtml"},
-                {"application/xml", ".xml"},  // anomoly, .xml -> text/xml, but application/xml -> many thingss, but all are xml, so safest is .xml
+                {"application/xml", ".xml"}, // anomoly, .xml -> text/xml, but application/xml -> many thingss, but all are xml, so safest is .xml
                 {"audio/aac", ".AAC"},
                 {"audio/aiff", ".aiff"},
                 {"audio/basic", ".snd"},
@@ -684,7 +696,7 @@ namespace MimeTypes
 
                 #endregion
 
-                };
+            };
 
             var cache = mappings.ToList(); // need ToList() to avoid modifying while still enumerating
 
@@ -699,11 +711,21 @@ namespace MimeTypes
             return mappings;
         }
 
-        public static string GetMimeType(string extension)
+        /// <summary>
+        /// Converts extension to its media type equivalent.
+        /// </summary>
+        /// <param name="extension">A string containing an extension to convert.</param>
+        /// <param name="useDefault">Backward compatibility: 
+        /// true - returns default media type, if conversion is not succesful;
+        /// false - throws exection.</param>
+        /// <returns>Media type equivalent to the extension.</returns>
+        public static string GetMimeType(string extension, bool useDefault = true)
         {
-            if (extension == null)
+            string mimeType;
+
+            if (string.IsNullOrWhiteSpace(extension))
             {
-                throw new ArgumentNullException("extension");
+                throw new ArgumentNullException(nameof(extension));
             }
 
             if (!extension.StartsWith("."))
@@ -711,31 +733,100 @@ namespace MimeTypes
                 extension = "." + extension;
             }
 
-            string mime;
+            if (_mappings.Value.TryGetValue(extension, out mimeType))
+            {
+                return mimeType;
+            }
 
-            return _mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
+            if (useDefault)
+            {
+                return DefaultMimeType;
+            }
+
+            throw new ArgumentException("Requested extension is not registered: " + extension);
         }
 
-        public static string GetExtension(string mimeType)
+        /// <summary>
+        /// Converts extension to its media type equivalent. A return value indicates whether the conversion succeeded.
+        /// </summary>
+        /// <param name="extension">A string containing an extension to convert.</param>
+        /// <param name="mimeType">When this method returns, contains the media type equivalent of the extension, if the conversion succeeded, or empty string if the conversion failed.</param>
+        /// <returns>true if extension was converted successfully; otherwise, false</returns>
+        public static bool TryGetMimeType(string extension, out string mimeType)
         {
-            if (mimeType == null)
+            mimeType = string.Empty;
+
+            bool succeeded = true;
+
+            try
             {
-                throw new ArgumentNullException("mimeType");
+                mimeType = GetMimeType(extension, false);
+            }
+            catch (Exception)
+            {
+                succeeded = false;
+            }
+
+            return succeeded;
+        }
+
+        /// <summary>
+        /// Converts media type to its extension equivalent.
+        /// </summary>
+        /// <param name="mimeType">A string containing media type to convert.</param>
+        /// <param name="useDefault">Backward compatibility: 
+        /// true - returns default extension, if conversion is not succesful;
+        /// false - throws exection.</param>
+        /// <returns>Extension equivalent to the media type.</returns>
+        public static string GetExtension(string mimeType, bool useDefault = false)
+        {
+            string extension;
+
+            if (string.IsNullOrWhiteSpace(mimeType))
+            {
+                throw new ArgumentNullException(nameof(mimeType));
             }
 
             if (mimeType.StartsWith("."))
             {
-                throw new ArgumentException("Requested mime type is not valid: " + mimeType);
+                throw new ArgumentException("Requested media type is not valid: " + mimeType);
             }
-
-            string extension;
 
             if (_mappings.Value.TryGetValue(mimeType, out extension))
             {
                 return extension;
             }
 
+            if (useDefault)
+            {
+                return DefaultExtension;
+            }
+
             throw new ArgumentException("Requested mime type is not registered: " + mimeType);
+        }
+
+        /// <summary>
+        /// Converts mime type to its extension equivalent. A return value indicates whether the conversion succeeded.
+        /// </summary>
+        /// <param name="mimeType">A string containing media type to convert.</param>
+        /// <param name="extension">When this method returns, contains the extension equivalent of the media type, if the conversion succeeded, or empty string if the conversion failed.</param>
+        /// <returns>true if mime type was converted successfully; otherwise, false</returns>
+        public static bool TryGetExtension(string mimeType, out string extension)
+        {
+            extension = string.Empty;
+
+            bool succeeded = true;
+
+            try
+            {
+                extension = GetExtension(mimeType, false);
+            }
+            catch (Exception)
+            {
+                succeeded = false;
+            }
+
+            return succeeded;
         }
     }
 }
