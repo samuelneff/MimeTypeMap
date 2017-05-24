@@ -699,7 +699,7 @@ namespace MimeTypes
             return mappings;
         }
 
-        public static string GetMimeType(string extension)
+        public static string GetMimeType(string extension, string defaultIfNotFound = "application/octet-stream")
         {
             if (extension == null)
             {
@@ -711,12 +711,26 @@ namespace MimeTypes
                 extension = "." + extension;
             }
 
-            string mime;
+            string mimeType;
 
-            return _mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
+            if (_mappings.Value.TryGetValue(extension, out mimeType))
+            {
+                return mimeType;
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(defaultIfNotFound))
+                {
+                    throw new ArgumentException("Requested extension is not registered: " + extension);
+                }
+                else
+                {
+                    return defaultIfNotFound;
+                }
+            }
         }
 
-        public static string GetExtension(string mimeType)
+        public static string GetExtension(string mimeType, string defaultIfNotFound = null)
         {
             if (mimeType == null)
             {
@@ -734,8 +748,17 @@ namespace MimeTypes
             {
                 return extension;
             }
-
-            throw new ArgumentException("Requested mime type is not registered: " + mimeType);
+            else
+            {
+                if (string.IsNullOrEmpty(defaultIfNotFound))
+                {
+                    throw new ArgumentException("Requested mime type is not registered: " + mimeType);
+                }
+                else
+                {
+                    return defaultIfNotFound;
+                }
+            }            
         }
     }
 }
