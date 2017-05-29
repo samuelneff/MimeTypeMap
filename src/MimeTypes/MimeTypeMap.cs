@@ -718,6 +718,11 @@ namespace MimeTypes
 
         public static string GetExtension(string mimeType)
         {
+             return GetExtension(mimeType, true);
+        }
+        
+        public static string GetExtension(string mimeType, bool throwErrorIfNotFound)
+        {
             if (mimeType == null)
             {
                 throw new ArgumentNullException("mimeType");
@@ -734,8 +739,14 @@ namespace MimeTypes
             {
                 return extension;
             }
-
-            throw new ArgumentException("Requested mime type is not registered: " + mimeType);
+            if (throwErrorIfNotFound)
+            {
+                throw new ArgumentException("Requested mime type is not registered: " + mimeType);
+            }
+            else
+            {
+                return string.Empty;   
+            }
         }
     }
 }
