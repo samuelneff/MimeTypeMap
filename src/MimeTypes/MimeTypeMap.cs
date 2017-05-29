@@ -716,7 +716,12 @@ namespace MimeTypes
             return _mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
         }
 
-        public static string GetExtension(string mimeType, bool throwErrorIfNotFound = true)
+        public static string GetExtension(string mimeType)
+        {
+             return GetExtension(mimeType, true);
+        }
+        
+        public static string GetExtension(string mimeType, bool throwErrorIfNotFound)
         {
             if (mimeType == null)
             {
