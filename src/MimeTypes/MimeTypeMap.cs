@@ -307,6 +307,7 @@ namespace MimeTypes
                 {".mpv2", "video/mpeg"},
                 {".mqv", "video/quicktime"},
                 {".ms", "application/x-troff-ms"},
+                {".msg", "application/vnd.ms-outlook"},
                 {".msi", "application/octet-stream"},
                 {".mso", "application/octet-stream"},
                 {".mts", "video/vnd.dlna.mpeg-tts"},
