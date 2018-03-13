@@ -9,6 +9,7 @@ namespace MimeTypeMapTest
         {
             Console.WriteLine("txt -> " + MimeTypeMap.GetMimeType("txt"));
             Console.WriteLine("audio/wav -> " + MimeTypeMap.GetExtension("audio/wav"));
+            Console.WriteLine("audio/* -> " + string.Join(",", MimeTypeMap.GetExtensionsByWildcard("audio/*")));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace MimeTypes
 {
@@ -750,6 +751,20 @@ namespace MimeTypes
             {
                 return string.Empty;   
             }
+        }
+
+        public static IEnumerable<string> GetExtensionsByWildcard(string mimeTypeWildcard)
+        {
+            var pattern = WildcardToRegex(mimeTypeWildcard);
+            return _mappings.Value
+                .Where(_ => Regex.IsMatch(_.Key, pattern))
+                .Select(_ => _.Value)
+                .AsEnumerable();
+        }
+
+        private static string WildcardToRegex(string wildcard)
+        {
+            return "^" + Regex.Escape(wildcard).Replace("\\?", ".").Replace("\\*", ".*") + "$";
         }
     }
 }
