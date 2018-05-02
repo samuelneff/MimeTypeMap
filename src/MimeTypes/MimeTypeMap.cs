@@ -378,6 +378,7 @@ namespace MimeTypes
                 {".pkgundef", "text/plain"},
                 {".pko", "application/vnd.ms-pki.pko"},
                 {".pls", "audio/scpls"},
+                {".plist", "text/plain"},
                 {".pma", "application/x-perfmon"},
                 {".pmc", "application/x-perfmon"},
                 {".pml", "application/x-perfmon"},
