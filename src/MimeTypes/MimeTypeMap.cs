@@ -554,6 +554,7 @@ namespace MimeTypes
                 {".vsto", "application/x-ms-vsto"},
                 {".vsw", "application/vnd.visio"},
                 {".vsx", "application/vnd.visio"},
+                {".vtt", "text/vtt"},
                 {".vtx", "application/vnd.visio"},
                 {".wasm", "application/wasm"},
                 {".wav", "audio/wav"},
