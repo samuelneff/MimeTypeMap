@@ -1,4 +1,6 @@
 # MimeTypeMap
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsamuelneff%2FMimeTypeMap.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsamuelneff%2FMimeTypeMap?ref=badge_shield)
+
 
 ## Summary
 Provides a huge two-way mapping of file extensions to mime types and mime types to file extensions, e.g.:
@@ -66,3 +68,7 @@ Pass in a mime type and get an extension back. If the mime type is not registere
 1.1.0 - April 22, 2015 - Merge pull requests
 
 1.0.0 - Original load from StackOverflow as is
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsamuelneff%2FMimeTypeMap.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsamuelneff%2FMimeTypeMap?ref=badge_large)
