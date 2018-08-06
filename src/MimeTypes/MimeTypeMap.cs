@@ -669,6 +669,7 @@ namespace MimeTypes
                 {"audio/x-pn-realaudio", ".ra"},
                 {"audio/x-smd", ".smd"},
                 {"image/bmp", ".bmp"},
+                {"image/gif", ".gif"},
                 {"image/jpeg", ".jpg"},
                 {"image/pict", ".pic"},
                 {"image/png", ".png"}, //Defined in [RFC-2045], [RFC-2048]
