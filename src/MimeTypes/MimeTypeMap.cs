@@ -711,6 +711,13 @@ namespace MimeTypes
 
         public static string GetMimeType(string extension)
         {
+            string mime;
+            
+            return TryGetMimeType(extension, out mime) ? mime : "application/octet-stream";
+        }
+
+        public static bool TryGetMimeType(string extension, out string result)
+        {
             if (extension == null)
             {
                 throw new ArgumentNullException("extension");
@@ -720,10 +727,34 @@ namespace MimeTypes
             {
                 extension = "." + extension;
             }
+            
+            return _mappings.Value.TryGetValue(extension, out result);
+        }
 
+        public static string GetMimeTypeFromFileName(string fileName)
+        {
             string mime;
+            
+            return TryGetMimeTypeFromFileName(fileName, out mime) ? mime : "application/octet-stream";
+        }
 
-            return _mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
+        public static bool TryGetMimeTypeFromFileName(string fileName, out string result)
+        {
+            if (fileName == null)
+            {
+                throw new ArgumentNullException("fileName");
+            }
+            var dotPos = -1;
+            while ((dotPos = fileName.IndexOf('.', dotPos + 1)) >= 0)
+            {
+                var extension = fileName.Substring(dotPos);
+                if (_mappings.Value.TryGetValue(extension, out result))
+                {
+                    return true;
+                }
+            }
+            result = null;
+            return false;
         }
 
         public static string GetExtension(string mimeType)
