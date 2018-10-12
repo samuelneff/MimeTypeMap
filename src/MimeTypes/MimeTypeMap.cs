@@ -161,6 +161,7 @@ namespace MimeTypes
                 {".emz", "application/octet-stream"},
                 {".eot", "application/vnd.ms-fontobject"},
                 {".eps", "application/postscript"},
+                {".es", "application/ecmascript"},
                 {".etl", "application/etl"},
                 {".etx", "text/x-setext"},
                 {".evy", "application/envoy"},
