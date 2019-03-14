@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net45;netcoreapp2.0;netstandard2.0;</TargetFrameworks>
     <PackageId>MimeTypeMap</PackageId>
-    <Version>1.0.3</Version>
+    <Version>2.3.4</Version>
     <Authors>Samuel Neff</Authors>
     <Company>Samuel Neff</Company>
     <Product>MimeTypeMap</Product>
@@ -12,8 +12,10 @@
     <Copyright>Samuel Neff 2017</Copyright>
     <PackageTags>C# ASP.NET</PackageTags>
     <Description>Huge dictionary of file extensions to mime types</Description>
-    <AssemblyVersion>2.3.2.0</AssemblyVersion>
-    <FileVersion>2.3.2.0</FileVersion>
+    <AssemblyVersion>2.3.4.0</AssemblyVersion>
+    <FileVersion>2.3.4.0</FileVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>MimeTypes_SNK.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
 
