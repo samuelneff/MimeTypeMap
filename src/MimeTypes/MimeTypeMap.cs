@@ -165,7 +165,7 @@ namespace MimeTypes
                 {".etl", "application/etl"},
                 {".etx", "text/x-setext"},
                 {".evy", "application/envoy"},
-                {".exe", "application/octet-stream"},
+                {".exe", "application/vnd.microsoft.portable-executable"},
                 {".exe.config", "text/xml"},
                 {".fdf", "application/vnd.fdf"},
                 {".fif", "application/fractals"},
