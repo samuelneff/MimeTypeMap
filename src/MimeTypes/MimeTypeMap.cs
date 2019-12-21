@@ -158,6 +158,7 @@ namespace MimeTypes
                 {".dxf", "application/x-dxf" },
                 {".dxr", "application/x-director"},
                 {".eml", "message/rfc822"},
+                {".emf", "image/x-emf"},
                 {".emz", "application/octet-stream"},
                 {".eot", "application/vnd.ms-fontobject"},
                 {".eps", "application/postscript"},
