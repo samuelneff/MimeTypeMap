@@ -21,7 +21,7 @@ namespace MimeTypes
                 //
                 // any mime types on left side not pre-loaded on right side, are added automatically
                 // some mime types can map to multiple extensions, so to get a deterministic mapping,
-                // add those to the dictionary specifcially
+                // add those to the dictionary specifically
                 //
                 // combination of values from Windows 7 Registry and 
                 // from C:\Windows\System32\inetsrv\config\applicationHost.config
