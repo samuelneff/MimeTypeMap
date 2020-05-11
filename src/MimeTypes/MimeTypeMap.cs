@@ -6,6 +6,8 @@ namespace MimeTypes
 {
     public static class MimeTypeMap
     {
+        private const string Dot = ".";
+        private const string DefaultMimeType = "application/octet-stream";
         private static readonly Lazy<IDictionary<string, string>> _mappings = new Lazy<IDictionary<string, string>>(BuildMappings);
 
         private static IDictionary<string, string> BuildMappings()
@@ -667,7 +669,7 @@ namespace MimeTypes
                 {"application/x-x509-ca-cert", ".cer"},
                 {"application/x-zip-compressed", ".zip"},
                 {"application/xhtml+xml", ".xhtml"},
-                {"application/xml", ".xml"},  // anomoly, .xml -> text/xml, but application/xml -> many thingss, but all are xml, so safest is .xml
+                {"application/xml", ".xml"}, // anomaly, .xml -> text/xml, but application/xml -> many things, but all are xml, so safest is .xml
                 {"audio/aac", ".AAC"},
                 {"audio/aiff", ".aiff"},
                 {"audio/basic", ".snd"},
@@ -680,8 +682,8 @@ namespace MimeTypes
                 {"image/bmp", ".bmp"},
                 {"image/jpeg", ".jpg"},
                 {"image/pict", ".pic"},
-                {"image/png", ".png"}, //Defined in [RFC-2045], [RFC-2048]
-                {"image/x-png", ".png"}, //See https://www.w3.org/TR/PNG/#A-Media-type :"It is recommended that implementations also recognize the media type "image/x-png"."
+                {"image/png", ".png"}, // Defined in [RFC-2045], [RFC-2048]
+                {"image/x-png", ".png"}, // See https://www.w3.org/TR/PNG/#A-Media-type :"It is recommended that implementations also recognize the media type "image/x-png"."
                 {"image/tiff", ".tiff"},
                 {"image/x-macpaint", ".mac"},
                 {"image/x-quicktime", ".qti"},
@@ -723,29 +725,22 @@ namespace MimeTypes
         {
             if (extension == null)
             {
-                throw new ArgumentNullException("extension");
+                throw new ArgumentNullException(nameof(extension));
             }
 
-            if (!extension.StartsWith("."))
+            if (!extension.StartsWith(Dot))
             {
-                extension = "." + extension;
+                extension = Dot + extension;
             }
 
-            string mime;
-
-            return _mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
+            return _mappings.Value.TryGetValue(extension, out string mime) ? mime : DefaultMimeType;
         }
 
-        public static string GetExtension(string mimeType)
-        {
-             return GetExtension(mimeType, true);
-        }
-        
-        public static string GetExtension(string mimeType, bool throwErrorIfNotFound)
+        public static string GetExtension(string mimeType, bool throwErrorIfNotFound = true)
         {
             if (mimeType == null)
             {
-                throw new ArgumentNullException("mimeType");
+                throw new ArgumentNullException(nameof(mimeType));
             }
 
             if (mimeType.StartsWith("."))
@@ -753,20 +748,17 @@ namespace MimeTypes
                 throw new ArgumentException("Requested mime type is not valid: " + mimeType);
             }
 
-            string extension;
-
-            if (_mappings.Value.TryGetValue(mimeType, out extension))
+            if (_mappings.Value.TryGetValue(mimeType, out string extension))
             {
                 return extension;
             }
+
             if (throwErrorIfNotFound)
             {
                 throw new ArgumentException("Requested mime type is not registered: " + mimeType);
             }
-            else
-            {
-                return string.Empty;   
-            }
+
+            return string.Empty;
         }
     }
 }
