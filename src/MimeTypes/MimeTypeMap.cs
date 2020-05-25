@@ -447,6 +447,7 @@ namespace MimeTypes
                 {".rm", "application/vnd.rn-realmedia"},
                 {".rmi", "audio/mid"},
                 {".rmp", "application/vnd.rn-rn_music_package"},
+                {".rmvb", "application/vnd.rn-realmedia-vbr"},
                 {".roff", "application/x-troff"},
                 {".rpm", "audio/x-pn-realaudio-plugin"},
                 {".rqy", "text/x-ms-rqy"},
