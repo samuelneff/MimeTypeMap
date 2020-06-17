@@ -493,6 +493,7 @@ namespace MimeTypes
                 {".spc", "application/x-pkcs7-certificates"},
                 {".spl", "application/futuresplash"},
                 {".spx", "audio/ogg"},
+                {".sql", "text/x-sql"},
                 {".src", "application/x-wais-source"},
                 {".srf", "text/plain"},
                 {".SSISDeploymentManifest", "text/xml"},
