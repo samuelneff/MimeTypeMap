@@ -488,6 +488,7 @@ namespace MimeTypes
                 {".snd", "audio/basic"},
                 {".snippet", "application/xml"},
                 {".snp", "application/octet-stream"},
+                {".sql", "application/sql"},
                 {".sol", "text/plain"},
                 {".sor", "text/plain"},
                 {".spc", "application/x-pkcs7-certificates"},
