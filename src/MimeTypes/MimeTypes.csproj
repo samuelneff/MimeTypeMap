@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFrameworks>net45;netcoreapp2.0;netstandard2.0;</TargetFrameworks>
     <PackageId>MimeTypeMap</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>Samuel Neff</Authors>
     <Company>Samuel Neff</Company>
     <Product>MimeTypeMap</Product>

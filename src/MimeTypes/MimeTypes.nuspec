@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 	<metadata>
-		<id>MediaTypeMap</id>
-		<version>$version$</version>
-		<title>Media Type Map</title>
-		<authors>$author$</authors>
-		<description>$description$</description>
+		<id>MimeTypeMapOfficial</id>
+		<version>1.0.4</version>
+		<title>Mime Type Map Official</title>
+		<authors>Samuel Neff</authors>
+		<description>Mappings for mime types to extensions and back.</description>
 		<projectUrl>https://github.com/samuelneff/MimeTypeMap</projectUrl>
-		<licenseUrl>https://github.com/samuelneff/MimeTypeMap/blob/master/LICENSE</licenseUrl>
+		<license type="expression">MIT</license>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<tags>C# ASP.NET</tags>
 	</metadata>
