@@ -18,6 +18,12 @@ up extension by mime type. Since multiple extensions can map to the same mime ty
 
 Originally posted on StackOverflow here: http://stackoverflow.com/questions/1029740/get-mime-type-from-filename-extension
 
+## NuGet
+
+There are several packages on NuGet built from this repo. The official one is at this URL.
+
+https://www.nuget.org/packages/MimeTypeMapOfficial
+
 ## Collaboration
 
 Please submit pull requests for any additions. Thanks!
