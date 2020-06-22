@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net45;netcoreapp2.0;netstandard2.0;</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.0;netstandard2.0;</TargetFrameworks>
     <PackageId>MimeTypeMap</PackageId>
     <Version>1.0.5</Version>
     <Authors>Samuel Neff</Authors>
