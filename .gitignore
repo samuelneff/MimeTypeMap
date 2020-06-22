@@ -6,6 +6,7 @@
 *.user
 *.sln.docstates
 **/*.vs/*
+push.bat
 
 # Build results
 [Dd]ebug/
