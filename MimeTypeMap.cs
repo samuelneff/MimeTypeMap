@@ -190,6 +190,7 @@ namespace MimeTypes
                 {".h", "text/plain"},
                 {".hdf", "application/x-hdf"},
                 {".hdml", "text/x-hdml"},
+                {".heic", "image/heic"},
                 {".hhc", "application/x-oleobject"},
                 {".hhk", "application/octet-stream"},
                 {".hhp", "application/octet-stream"},
@@ -682,6 +683,7 @@ namespace MimeTypes
                 {"audio/x-pn-realaudio", ".ra"},
                 {"audio/x-smd", ".smd"},
                 {"image/bmp", ".bmp"},
+                {"image/heic", ".heic"},
                 {"image/jpeg", ".jpg"},
                 {"image/pict", ".pic"},
                 {"image/png", ".png"}, // Defined in [RFC-2045], [RFC-2048]
