@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 	<metadata>
 		<id>MimeTypeMapOfficial</id>
-		<version>1.0.8</version>
+		<version>1.0.9</version>
 		<title>Mime Type Map Official</title>
 		<authors>Samuel Neff</authors>
 		<description>Mappings for mime types to extensions and back.</description>
