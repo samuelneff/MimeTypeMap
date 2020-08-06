@@ -373,6 +373,7 @@ namespace MimeTypes
                 {".otp", "application/vnd.oasis.opendocument.presentation-template"},
                 {".ots", "application/vnd.oasis.opendocument.spreadsheet-template"},
                 {".ott", "application/vnd.oasis.opendocument.text-template"},
+                {".oxps", "application/oxps"},
                 {".oxt", "application/vnd.openofficeorg.extension"},
                 {".p10", "application/pkcs10"},
                 {".p12", "application/x-pkcs12"},
