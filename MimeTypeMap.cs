@@ -676,6 +676,7 @@ namespace MimeTypes
                 {"application/vnd.ms-works", ".wks"},
                 {"application/vnd.visio", ".vsd"},
                 {"application/x-director", ".dir"},
+                {"application/x-msdos-program", ".exe"},
                 {"application/x-shockwave-flash", ".swf"},
                 {"application/x-x509-ca-cert", ".cer"},
                 {"application/x-zip-compressed", ".zip"},
