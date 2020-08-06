@@ -684,6 +684,7 @@ namespace MimeTypes
                 {"audio/aiff", ".aiff"},
                 {"audio/basic", ".snd"},
                 {"audio/mid", ".midi"},
+                {"audio/mp4", ".m4a"}, // one way mapping only, mime -> ext
                 {"audio/wav", ".wav"},
                 {"audio/x-m4a", ".m4a"},
                 {"audio/x-mpegurl", ".m3u"},
