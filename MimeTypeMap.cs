@@ -129,6 +129,7 @@ namespace MimeTypes
                 {".css", "text/css"},
                 {".csv", "text/csv"},
                 {".cur", "application/octet-stream"},
+                {".czx", "application/x-czx"},
                 {".cxx", "text/plain"},
                 {".dat", "application/octet-stream"},
                 {".datasource", "application/xml"},
