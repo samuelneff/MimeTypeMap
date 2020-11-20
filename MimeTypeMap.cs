@@ -68,6 +68,7 @@ namespace MimeTypes
                 {".amc", "application/mpeg"},
                 {".anx", "application/annodex"},
                 {".apk", "application/vnd.android.package-archive"},
+                {".apng", "image/apng"},
                 {".application", "application/x-ms-application"},
                 {".art", "image/x-jg"},
                 {".asa", "application/xml"},
