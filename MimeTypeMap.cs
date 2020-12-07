@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace MimeTypes
 {
+    /// <summary>
+    /// Class MimeTypeMap.
+    /// </summary>
     public static class MimeTypeMap
     {
         private const string Dot = ".";
@@ -736,29 +739,60 @@ namespace MimeTypes
             return mappings;
         }
 
-        public static string GetMimeType(string extension)
+        /// <summary>
+        /// Tries to get the type of the MIME from the provided string.
+        /// </summary>
+        /// <param name="str">The filename or extension.</param>
+        /// <param name="mimeType">The variable to store the MIME type.</param>
+        /// <returns>The MIME type.</returns>
+        /// <exception cref="ArgumentNullException" />
+        public static bool TryGetMimeType(string str, out string mimeType) 
         {
-            if (extension == null)
+            if (string.IsNullOrWhiteSpace(str)) throw new ArgumentNullException(nameof(str));
+
+            if (!str.StartsWith(Dot))
             {
-                throw new ArgumentNullException(nameof(extension));
+                var index = str.LastIndexOf(Dot);
+                if (index != -1 && str.Length > index + 1)
+                {
+                    str = str.Substring(index + 1);
+                }
+
+                str = Dot + str;
             }
 
-            if (!extension.StartsWith(Dot))
-            {
-                extension = Dot + extension;
-            }
-
-            return _mappings.Value.TryGetValue(extension, out string mime) ? mime : DefaultMimeType;
+            return _mappings.Value.TryGetValue(str, out mimeType);
         }
 
+        /// <summary>
+        /// Gets the type of the MIME from the provided string.
+        /// </summary>
+        /// <param name="str">The filename or extension.</param>
+        /// <returns>The MIME type.</returns>
+        /// <exception cref="ArgumentNullException" />
+        public static string GetMimeType(string str)
+        {
+            if (string.IsNullOrWhiteSpace(str)) throw new ArgumentNullException(nameof(str));
+
+            return MimeTypeMap.TryGetMimeType(str, out var result) ? result : DefaultMimeType;
+        }
+
+        /// <summary>
+        /// Gets the extension from the provided MINE type.
+        /// </summary>
+        /// <param name="mimeType">Type of the MIME.</param>
+        /// <param name="throwErrorIfNotFound">if set to <c>true</c>, throws error if extension's not found.</param>
+        /// <returns>The extension.</returns>
+        /// <exception cref="ArgumentNullException" />
+        /// <exception cref="ArgumentException" />
         public static string GetExtension(string mimeType, bool throwErrorIfNotFound = true)
         {
-            if (mimeType == null)
+            if (string.IsNullOrWhiteSpace(mimeType))
             {
                 throw new ArgumentNullException(nameof(mimeType));
             }
 
-            if (mimeType.StartsWith("."))
+            if (mimeType.StartsWith(Dot))
             {
                 throw new ArgumentException("Requested mime type is not valid: " + mimeType);
             }
@@ -773,7 +807,7 @@ namespace MimeTypes
                 throw new ArgumentException("Requested mime type is not registered: " + mimeType);
             }
 
-            return string.Empty;
+            return null;
         }
     }
 }
