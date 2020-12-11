@@ -807,7 +807,8 @@ namespace MimeTypes
                 throw new ArgumentException("Requested mime type is not registered: " + mimeType);
             }
 
-            return null;
+            return string.Empty;
+
         }
     }
 }
