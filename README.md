@@ -1,5 +1,7 @@
 # MimeTypeMap
 
+English | [简体中文](README-zh-Hans.md)
+
 ## Summary
 Provides a huge two-way mapping of file extensions to mime types and mime types to file extensions, e.g.:
 
