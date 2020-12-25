@@ -10,6 +10,7 @@ namespace MimeTypes
     public static class MimeTypeMap
     {
         private const string Dot = ".";
+        private const string QuestionMark = "?";
         private const string DefaultMimeType = "application/octet-stream";
         private static readonly Lazy<IDictionary<string, string>> _mappings = new Lazy<IDictionary<string, string>>(BuildMappings);
 
@@ -759,6 +760,11 @@ namespace MimeTypes
                 }
 
                 str = Dot + str;
+            }
+
+            if (str.Contains(QuestionMark))
+            {
+                str = str.Remove(str.IndexOf(QuestionMark, StringComparison.Ordinal));
             }
 
             return _mappings.Value.TryGetValue(str, out mimeType);
