@@ -762,9 +762,10 @@ namespace MimeTypes
                 str = Dot + str;
             }
 
-            if (str.Contains(QuestionMark))
+            var indexQuestionMark = str.IndexOf(QuestionMark, StringComparison.Ordinal);
+            if (indexQuestionMark != -1)
             {
-                str = str.Remove(str.IndexOf(QuestionMark, StringComparison.Ordinal));
+                str = str.Remove(indexQuestionMark);
             }
 
             return _mappings.Value.TryGetValue(str, out mimeType);
