@@ -749,7 +749,16 @@ namespace MimeTypes
         /// <exception cref="ArgumentNullException" />
         public static bool TryGetMimeType(string str, out string mimeType) 
         {
-            if (string.IsNullOrWhiteSpace(str)) throw new ArgumentNullException(nameof(str));
+            if (str == null) {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            var indexQuestionMark = str.IndexOf(QuestionMark, StringComparison.Ordinal);
+            if (indexQuestionMark != -1)
+            {
+                str = str.Remove(indexQuestionMark);
+            }
+
 
             if (!str.StartsWith(Dot))
             {
@@ -760,12 +769,6 @@ namespace MimeTypes
                 }
 
                 str = Dot + str;
-            }
-
-            var indexQuestionMark = str.IndexOf(QuestionMark, StringComparison.Ordinal);
-            if (indexQuestionMark != -1)
-            {
-                str = str.Remove(indexQuestionMark);
             }
 
             return _mappings.Value.TryGetValue(str, out mimeType);
@@ -779,8 +782,6 @@ namespace MimeTypes
         /// <exception cref="ArgumentNullException" />
         public static string GetMimeType(string str)
         {
-            if (string.IsNullOrWhiteSpace(str)) throw new ArgumentNullException(nameof(str));
-
             return MimeTypeMap.TryGetMimeType(str, out var result) ? result : DefaultMimeType;
         }
 
@@ -794,7 +795,7 @@ namespace MimeTypes
         /// <exception cref="ArgumentException" />
         public static string GetExtension(string mimeType, bool throwErrorIfNotFound = true)
         {
-            if (string.IsNullOrWhiteSpace(mimeType))
+            if (mimeType == null)
             {
                 throw new ArgumentNullException(nameof(mimeType));
             }
@@ -815,7 +816,6 @@ namespace MimeTypes
             }
 
             return string.Empty;
-
         }
     }
 }
