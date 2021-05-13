@@ -268,6 +268,7 @@ namespace MimeTypes
                 {".jpeg", "image/jpeg"},
                 {".jpg", "image/jpeg"},
                 {".js", "application/javascript"},
+                {".js", "file/javascript"},
                 {".json", "application/json"},
                 {".jsx", "text/jscript"},
                 {".jsxbin", "text/plain"},
