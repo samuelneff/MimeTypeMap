@@ -266,7 +266,7 @@ namespace MimeTypes
                 {".jpb", "application/octet-stream"},
                 {".jpe", "image/jpeg"},
                 {".jpeg", "image/jpeg"},
-                {".jpg", "image/jpeg"},
+                {".jpg", "image/jpg"},
                 {".js", "application/javascript"},
                 {".json", "application/json"},
                 {".jsx", "text/jscript"},
