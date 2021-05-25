@@ -191,6 +191,7 @@ namespace MimeTypes
                 {".fsscript", "application/fsharp-script"},
                 {".fsx", "application/fsharp-script"},
                 {".generictest", "application/xml"},
+                {".geojson", "application/geo+json"},
                 {".gif", "image/gif"},
                 {".gpx", "application/gpx+xml"},
                 {".group", "text/x-ms-group"},
