@@ -266,7 +266,7 @@ namespace MimeTypes
                 {".jpb", "application/octet-stream"},
                 {".jpe", "image/jpeg"},
                 {".jpeg", "image/jpeg"},
-                {".jpg", "image/jpg"},
+                {".jpg", "image/jpeg"},
                 {".js", "application/javascript"},
                 {".json", "application/json"},
                 {".jsx", "text/jscript"},
@@ -700,6 +700,7 @@ namespace MimeTypes
                 {"audio/x-smd", ".smd"},
                 {"image/bmp", ".bmp"},
                 {"image/jpeg", ".jpg"},
+                {"image/jpg", ".jpg"},
                 {"image/pict", ".pic"},
                 {"image/png", ".png"}, // Defined in [RFC-2045], [RFC-2048]
                 {"image/x-png", ".png"}, // See https://www.w3.org/TR/PNG/#A-Media-type :"It is recommended that implementations also recognize the media type "image/x-png"."
@@ -722,6 +723,7 @@ namespace MimeTypes
                 {"video/x-la-asf", ".lsf"},
                 {"video/x-ms-asf", ".asf"},
                 {"x-world/x-vrml", ".xof"},
+
 
                 #endregion
 
