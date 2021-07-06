@@ -479,7 +479,7 @@ namespace MimeTypes
                 {".scr", "text/plain"},
                 {".sct", "text/scriptlet"},
                 {".sd2", "audio/x-sd2"},
-                {".sdoc", "application/sdoc"}
+                {".sdoc", "application/sdoc"},
                 {".sdp", "application/sdp"},
                 {".sea", "application/octet-stream"},
                 {".searchConnector-ms", "application/windows-search-connector+xml"},
