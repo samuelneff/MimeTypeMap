@@ -686,6 +686,7 @@ namespace MimeTypes
                 {"application/x-msdos-program", ".exe"},
                 {"application/x-shockwave-flash", ".swf"},
                 {"application/x-x509-ca-cert", ".cer"},
+                {"application/x-outlook-msg", ".msg"}, // added for content server compatibility application/x-outlook-msg
                 {"application/x-zip-compressed", ".zip"},
                 {"application/zip", ".zip"}, // added for content server compatibility
                 {"application/xhtml+xml", ".xhtml"},
