@@ -539,6 +539,7 @@ namespace MimeTypes
                 {".tlh", "text/plain"},
                 {".tli", "text/plain"},
                 {".toc", "application/octet-stream"},
+                {".toml", "application/toml"},
                 {".tr", "application/x-troff"},
                 {".trm", "application/x-msterminal"},
                 {".trx", "application/xml"},
