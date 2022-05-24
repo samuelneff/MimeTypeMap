@@ -272,6 +272,7 @@ namespace MimeTypes
                 {".json", "application/json"},
                 {".jsx", "text/jscript"},
                 {".jsxbin", "text/plain"},
+                {".key", "application/vnd.apple.keynote"},
                 {".latex", "application/x-latex"},
                 {".library-ms", "application/windows-library+xml"},
                 {".lit", "application/x-ms-reader"},
@@ -347,6 +348,7 @@ namespace MimeTypes
                 {".mxp", "application/x-mmxp"},
                 {".nc", "application/x-netcdf"},
                 {".nsc", "video/x-ms-asf"},
+                {".numbers", "application/vnd.apple.numbers"},
                 {".nws", "message/rfc822"},
                 {".ocx", "application/octet-stream"},
                 {".oda", "application/oda"},
@@ -389,6 +391,7 @@ namespace MimeTypes
                 {".p7m", "application/pkcs7-mime"},
                 {".p7r", "application/x-pkcs7-certreqresp"},
                 {".p7s", "application/pkcs7-signature"},
+                {".pages", "application/vnd.apple.pages"},
                 {".pbm", "image/x-portable-bitmap"},
                 {".pcast", "application/x-podcast"},
                 {".pct", "image/pict"},
@@ -689,10 +692,21 @@ namespace MimeTypes
                 {"application/x-zip-compressed", ".zip"},
                 {"application/xhtml+xml", ".xhtml"},
                 {"application/xml", ".xml"}, // anomaly, .xml -> text/xml, but application/xml -> many things, but all are xml, so safest is .xml
+
+				//mimetypes for apple applications, new versions first, old versions below
+                {"application/vnd.apple.pages", ".pages"},
+                {"application/vnd.apple.keynote", ".key"},
+                {"application/vnd.apple.numbers", ".numbers"},
+                {"application/x-iwork-pages-sffpages", ".pages"},
+                {"application/x-iwork-keynote-sffkey", ".key"},
+                {"application/x-iwork-numbers-sffnumbers", ".numbers"},
+
                 {"audio/aac", ".AAC"},
                 {"audio/aiff", ".aiff"},
                 {"audio/basic", ".snd"},
                 {"audio/mid", ".midi"},
+                {"audio/ogg", ".ogg"},
+                {"audio/ogg; codecs=opus", ".opus"},
                 {"audio/mp4", ".m4a"}, // one way mapping only, mime -> ext
                 {"audio/wav", ".wav"},
                 {"audio/x-m4a", ".m4a"},
@@ -716,6 +730,7 @@ namespace MimeTypes
                 {"video/3gpp", ".3gp"},
                 {"video/3gpp2", ".3gp2"},
                 {"video/mp4", ".mp4"},
+                {"audio/mp4", ".m4a"},
                 {"video/mpeg", ".mpg"},
                 {"video/quicktime", ".mov"},
                 {"video/vnd.dlna.mpeg-tts", ".m2t"},
