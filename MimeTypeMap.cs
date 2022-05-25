@@ -681,6 +681,9 @@ namespace MimeTypes
                 {"application/onenote", ".one"},
                 {"application/postscript", ".eps"},
                 {"application/step", ".step"},
+                {"application/vnd.apple.keynote", ".key"},
+                {"application/vnd.apple.numbers", ".numbers"},
+                {"application/vnd.apple.pages", ".pages"},
                 {"application/vnd.ms-excel", ".xls"},
                 {"application/vnd.ms-powerpoint", ".ppt"},
                 {"application/vnd.ms-works", ".wks"},
@@ -691,23 +694,17 @@ namespace MimeTypes
                 {"application/x-x509-ca-cert", ".cer"},
                 {"application/x-zip-compressed", ".zip"},
                 {"application/xhtml+xml", ".xhtml"},
-                {"application/xml", ".xml"}, // anomaly, .xml -> text/xml, but application/xml -> many things, but all are xml, so safest is .xml
-
-				//mimetypes for apple applications, new versions first, old versions below
-                {"application/vnd.apple.pages", ".pages"},
-                {"application/vnd.apple.keynote", ".key"},
-                {"application/vnd.apple.numbers", ".numbers"},
-                {"application/x-iwork-pages-sffpages", ".pages"},
                 {"application/x-iwork-keynote-sffkey", ".key"},
                 {"application/x-iwork-numbers-sffnumbers", ".numbers"},
-
+                {"application/x-iwork-pages-sffpages", ".pages"},
+                {"application/xml", ".xml"}, // anomaly, .xml -> text/xml, but application/xml -> many things, but all are xml, so safest is .xml
                 {"audio/aac", ".AAC"},
                 {"audio/aiff", ".aiff"},
                 {"audio/basic", ".snd"},
                 {"audio/mid", ".midi"},
+                {"audio/mp4", ".m4a"}, // one way mapping only, mime -> ext
                 {"audio/ogg", ".ogg"},
                 {"audio/ogg; codecs=opus", ".opus"},
-                {"audio/mp4", ".m4a"}, // one way mapping only, mime -> ext
                 {"audio/wav", ".wav"},
                 {"audio/x-m4a", ".m4a"},
                 {"audio/x-mpegurl", ".m3u"},
@@ -730,7 +727,6 @@ namespace MimeTypes
                 {"video/3gpp", ".3gp"},
                 {"video/3gpp2", ".3gp2"},
                 {"video/mp4", ".mp4"},
-                {"audio/mp4", ".m4a"},
                 {"video/mpeg", ".mpg"},
                 {"video/quicktime", ".mov"},
                 {"video/vnd.dlna.mpeg-tts", ".m2t"},
