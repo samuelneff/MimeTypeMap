@@ -710,7 +710,9 @@ namespace MimeTypes
                 {"audio/x-mpegurl", ".m3u"},
                 {"audio/x-pn-realaudio", ".ra"},
                 {"audio/x-smd", ".smd"},
-                {"image/bmp", ".bmp"},
+                {"image/bmp", ".bmp"},                
+                {"image/heic", ".heic"},
+                {"image/heif", ".heif"},
                 {"image/jpeg", ".jpg"},
                 {"image/pict", ".pic"},
                 {"image/png", ".png"}, // Defined in [RFC-2045], [RFC-2048]
@@ -828,6 +830,11 @@ namespace MimeTypes
             }
 
             return string.Empty;
+        }
+
+        public static void AddMapping(string key, string value)
+        {
+            _mappings.Add(key, value)
         }
     }
 }
