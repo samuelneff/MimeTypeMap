@@ -831,10 +831,5 @@ namespace MimeTypes
 
             return string.Empty;
         }
-
-        public static void AddMapping(string key, string value)
-        {
-            _mappings.Add(key, value)
-        }
     }
 }
