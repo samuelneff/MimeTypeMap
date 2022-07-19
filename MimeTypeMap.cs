@@ -300,8 +300,10 @@ namespace MimeTypes
                 {".man", "application/x-troff-man"},
                 {".manifest", "application/x-ms-manifest"},
                 {".map", "text/plain"},
+                {".markdown", "text/markdown"},
                 {".master", "application/xml"},
                 {".mbox", "application/mbox"},
+                {".md", "text/markdown"},
                 {".mda", "application/msaccess"},
                 {".mdb", "application/x-msaccess"},
                 {".mde", "application/msaccess"},
@@ -724,6 +726,7 @@ namespace MimeTypes
                 {"text/calendar", ".ics"},
                 {"text/html", ".html"},
                 {"text/plain", ".txt"},
+                {"text/markdown", ".md"}, // https://datatracker.ietf.org/doc/html/rfc7763
                 {"text/scriptlet", ".wsc"},
                 {"text/xml", ".xml"},
                 {"video/3gpp", ".3gp"},
