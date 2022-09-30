@@ -39,7 +39,9 @@ using MimeTypes;
 ### Getting the mime type to an extension
 
 ```cs
-Console.WriteLine("txt -> " + MimeTypeMap.GetMimeType("txt"));  // "text/plain"
+var fileName = "test.txt";
+var ext = Path.GetExtension(fileName); // .txt
+Console.WriteLine("txt -> " + MimeTypeMap.GetMimeType(ext));  // "text/plain"
 ```
 
 Pass in a string extension and get a mime type back. Optionally include the period. If not it will be added before looking up the mime type.
