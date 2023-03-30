@@ -110,7 +110,7 @@ namespace MimeTypes
                 {".cb7", "application/x-cb7"},
                 {".cbr", "application/x-cbr"},
                 {".cbt", "application/x-cbt"},
-                {".cbr", "application/x-cbz"},
+                {".cbz", "application/x-cbz"},
                 {".cc", "text/plain"},
                 {".cd", "text/plain"},
                 {".cdda", "audio/aiff"},
