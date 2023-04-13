@@ -178,8 +178,8 @@ namespace MimeTypes
                 {".emf", "image/emf"},
                 {".emz", "application/octet-stream"},
                 {".eot", "application/vnd.ms-fontobject"},
-                {".epub", "application/epub+zip"},
                 {".eps", "application/postscript"},
+                {".epub", "application/epub+zip"},
                 {".es", "application/ecmascript"},
                 {".etl", "application/etl"},
                 {".etx", "text/x-setext"},
@@ -681,6 +681,7 @@ namespace MimeTypes
                 {".z", "application/x-compress"},
                 {".zip", "application/zip"},
 
+                {"application/epub+zip", ".epub"},
                 {"application/fsharp-script", ".fsx"},
                 {"application/msaccess", ".adp"},
                 {"application/msword", ".doc"},
@@ -783,7 +784,7 @@ namespace MimeTypes
 
             if (!str.StartsWith(Dot))
             {
-                var index = str.LastIndexOf(Dot);
+                var index = str.LastIndexOf(Dot, StringComparison.Ordinal);
                 if (index != -1 && str.Length > index + 1)
                 {
                     str = str.Substring(index + 1);
@@ -826,7 +827,7 @@ namespace MimeTypes
                 throw new ArgumentException("Requested mime type is not valid: " + mimeType);
             }
 
-            if (_mappings.Value.TryGetValue(mimeType, out string extension))
+            if (_mappings.Value.TryGetValue(mimeType, out var extension))
             {
                 return extension;
             }
