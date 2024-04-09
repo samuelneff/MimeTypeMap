@@ -193,6 +193,7 @@ namespace MimeTypes
                 {".generictest", "application/xml"},
                 {".geojson", "application/geo+json"},
                 {".gif", "image/gif"},
+                {".gml", "application/gml+xml"},
                 {".gpx", "application/gpx+xml"},
                 {".group", "text/x-ms-group"},
                 {".gsm", "audio/x-gsm"},
