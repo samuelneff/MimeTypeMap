@@ -572,6 +572,7 @@ namespace MimeTypes
                 {".vscontent", "application/xml"},
                 {".vsct", "text/xml"},
                 {".vsd", "application/vnd.visio"},
+                {".vsdx", "application/vnd.ms-visio.viewer"},                
                 {".vsi", "application/ms-vsi"},
                 {".vsix", "application/vsix"},
                 {".vsixlangpack", "text/xml"},
