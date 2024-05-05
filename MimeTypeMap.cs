@@ -716,6 +716,7 @@ namespace MimeTypes
                 {"image/heic", ".heic"},
                 {"image/heif", ".heif"},
                 {"image/jpeg", ".jpg"},
+                {"image/jpg", ".jpg"},
                 {"image/pict", ".pic"},
                 {"image/png", ".png"}, // Defined in [RFC-2045], [RFC-2048]
                 {"image/x-png", ".png"}, // See https://www.w3.org/TR/PNG/#A-Media-type :"It is recommended that implementations also recognize the media type "image/x-png"."
