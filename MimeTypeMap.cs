@@ -42,6 +42,7 @@ namespace MimeTypes
                 {".3gp2", "video/3gpp2"},
                 {".3gpp", "video/3gpp"},
                 {".7z", "application/x-7z-compressed"},
+                {".7zip", "application/x-7z-compressed"},
                 {".aa", "audio/audible"},
                 {".AAC", "audio/aac"},
                 {".aaf", "application/octet-stream"},
@@ -106,6 +107,10 @@ namespace MimeTypes
                 {".caf", "audio/x-caf"},
                 {".calx", "application/vnd.ms-office.calx"},
                 {".cat", "application/vnd.ms-pki.seccat"},
+                {".cb7", "application/x-cb7"},
+                {".cbr", "application/x-cbr"},
+                {".cbt", "application/x-cbt"},
+                {".cbz", "application/x-cbz"},
                 {".cc", "text/plain"},
                 {".cd", "text/plain"},
                 {".cdda", "audio/aiff"},
@@ -174,6 +179,7 @@ namespace MimeTypes
                 {".emz", "application/octet-stream"},
                 {".eot", "application/vnd.ms-fontobject"},
                 {".eps", "application/postscript"},
+                {".epub", "application/epub+zip"},
                 {".es", "application/ecmascript"},
                 {".etl", "application/etl"},
                 {".etx", "text/x-setext"},
@@ -529,6 +535,7 @@ namespace MimeTypes
                 {".stp", "application/step"},
                 {".t", "application/x-troff"},
                 {".tar", "application/x-tar"},
+                {".tar.gz", "application/gzip"},
                 {".tcl", "application/x-tcl"},
                 {".testrunconfig", "application/xml"},
                 {".testsettings", "application/xml"},
@@ -676,6 +683,7 @@ namespace MimeTypes
                 {".z", "application/x-compress"},
                 {".zip", "application/zip"},
 
+                {"application/epub+zip", ".epub"},
                 {"application/fsharp-script", ".fsx"},
                 {"application/msaccess", ".adp"},
                 {"application/msword", ".doc"},
@@ -778,7 +786,7 @@ namespace MimeTypes
 
             if (!str.StartsWith(Dot))
             {
-                var index = str.LastIndexOf(Dot);
+                var index = str.LastIndexOf(Dot, StringComparison.Ordinal);
                 if (index != -1 && str.Length > index + 1)
                 {
                     str = str.Substring(index + 1);
@@ -821,7 +829,7 @@ namespace MimeTypes
                 throw new ArgumentException("Requested mime type is not valid: " + mimeType);
             }
 
-            if (_mappings.Value.TryGetValue(mimeType, out string extension))
+            if (_mappings.Value.TryGetValue(mimeType, out var extension))
             {
                 return extension;
             }
