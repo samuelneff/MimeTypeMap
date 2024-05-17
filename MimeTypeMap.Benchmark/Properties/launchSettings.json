@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MimeTypeMap.Benchmark": {
+      "commandName": "Project",
+      "commandLineArgs": "createswitchno"
+    }
+  }
+}
