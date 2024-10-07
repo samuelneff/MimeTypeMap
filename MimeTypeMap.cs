@@ -802,7 +802,7 @@ namespace MimeTypes
         }
 
         /// <summary>
-        /// Gets the extension from the provided MINE type.
+        /// Gets the extension from the provided MIME type.
         /// </summary>
         /// <param name="mimeType">Type of the MIME.</param>
         /// <param name="throwErrorIfNotFound">if set to <c>true</c>, throws error if extension's not found.</param>
