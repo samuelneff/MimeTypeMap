@@ -673,6 +673,8 @@ namespace MimeTypes
                 {".xspf", "application/xspf+xml"},
                 {".xtp", "application/octet-stream"},
                 {".xwd", "image/x-xwindowdump"},
+                {".yml", "application/yaml"},
+                {".yaml", "application/yaml"},
                 {".z", "application/x-compress"},
                 {".zip", "application/zip"},
 
